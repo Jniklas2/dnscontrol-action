@@ -1,4 +1,4 @@
-FROM ghcr.io/stackexchange/dnscontrol:4.9.0@sha256:9999a62045c30de6d6e58ed8f6a4a4180c6026f9fbd625fefaa50cff1a2b9559
+FROM ghcr.io/stackexchange/dnscontrol:4.10.0@sha256:bafe6c9298efe5b259f10671b7cf5fb7dc125ba2f2152af501093dd10280582c
 
 LABEL repository="https://github.com/Jniklas2/DNSControl-Action"
 LABEL maintainer="Jniklas2 <github@sl.crcr.tech>"
