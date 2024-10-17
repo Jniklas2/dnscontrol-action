@@ -8,6 +8,7 @@ CREDS_ABS_PATH="$(readlink -f "${INPUT_CREDS_FILE}")"
 ALLOW_FETCH="${ALLOW_FETCH:-false}"
 DISABLE_ORDERED_UPDATE="${DISABLE_ORDERED_UPDATE:-false}"
 ENABLE_COLORS="${ENABLE_COLORS:-false}"
+ENABLE_CONCURRENT="${ENABLE_CONCURRENT:-true}"
 
 WORKING_DIR="$(dirname "${CONFIG_ABS_PATH}")"
 cd "$WORKING_DIR" || exit
@@ -23,6 +24,12 @@ fi
 
 if [ "$ALLOW_FETCH" = true ]; then
   ARGS+=(--allow-fetch)
+fi
+
+if [ "$ENABLE_CONCURRENT" = true ]; then
+  ARGS+=(--cmode=concurrent)
+else
+  ARGS+=(--cmode=legacy)
 fi
 
 ARGS+=(
