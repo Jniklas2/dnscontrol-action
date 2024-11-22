@@ -4,5 +4,5 @@
     ":dependencyDashboard",
     "group:allNonMajor"
   ],
-  "renovateFork": true
+  "forkProcessing": "enabled"
 }
