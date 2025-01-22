@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "config:recommended",
+    ":dependencyDashboard",
+    "group:allNonMajor"
+  ],
+  "forkProcessing": "enabled",
+  "ignoreUnstable": "true",
+  "respectLatest": "true",
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "assignees": ["@Jniklas2"]
+  }
+}
