@@ -29,14 +29,10 @@ inputs:
     description: Disable the ordered update function.
     required: false
     default: 'false'
-  enable_concurrent:
-    description: Enable concurrent execution of commands.
-    required: false
-    default: 'true'
 outputs:
   output:
     description: The output of the dnscontrol command that was executed.
 runs:
   using: docker
   # image: 'Dockerfile'
-  image: 'docker://ghcr.io/jniklas2/dnscontrol-action:v4.15.5'
+  image: 'docker://ghcr.io/jniklas2/dnscontrol-action:v4.16.0'

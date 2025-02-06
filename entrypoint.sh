@@ -8,7 +8,6 @@ CREDS_ABS_PATH="$(readlink -f "${INPUT_CREDS_FILE}")"
 ALLOW_FETCH="${ALLOW_FETCH:-false}"
 DISABLE_ORDERED_UPDATE="${DISABLE_ORDERED_UPDATE:-false}"
 ENABLE_COLORS="${ENABLE_COLORS:-false}"
-ENABLE_CONCURRENT="${ENABLE_CONCURRENT:-true}"
 
 WORKING_DIR="$(dirname "${CONFIG_ABS_PATH}")"
 cd "$WORKING_DIR" || exit
@@ -35,12 +34,12 @@ ARGS+=(
 if [ "$1" != "check" ]; then
   ARGS+=(--creds "$CREDS_ABS_PATH")
 
-  if [ "$ENABLE_CONCURRENT" = false ]; then
-    ARGS+=(--cmode "legacy")
-  else
-    ARGS+=(--cmode "concurrent")
-  fi
-fi
+#   if [ "$ENABLE_CONCURRENT" = false ]; then
+#     ARGS+=(--cmode "legacy")
+#   else
+#     ARGS+=(--cmode "concurrent")
+#   fi
+# fi
 
 OUTPUT=()
 
@@ -50,10 +49,10 @@ OUTPUT+=("Input args: $@")
 OUTPUT="$(dnscontrol "${ARGS[@]}")"
 EXIT_CODE="$?"
 
-echo "$OUTPUT"
+# echo "$OUTPUT"
 
 # Filter output to reduce 'preview' PR comment length
-FILTERED_OUTPUT="$(echo "$OUTPUT" | /filter-preview-output.sh)"
+# FILTERED_OUTPUT="$(echo "$OUTPUT" | /filter-preview-output.sh)"
 
 # Set output
 # https://github.com/orgs/community/discussions/26288#discussioncomment-3876281
@@ -65,7 +64,7 @@ DELIMITER="DNSCONTROL-$RANDOM"
   echo "$DELIMITER"
 
   echo "preview_comment<<$DELIMITER"
-  echo "$FILTERED_OUTPUT"
+  echo "$OUTPUT"
   echo "$DELIMITER"
 } >>"$GITHUB_OUTPUT"
 
