@@ -33,6 +33,7 @@ ARGS+=(
 # 'check' sub-command doesn't require credentials
 if [ "$1" != "check" ]; then
   ARGS+=(--creds "$CREDS_ABS_PATH")
+fi
 
 #   if [ "$ENABLE_CONCURRENT" = false ]; then
 #     ARGS+=(--cmode "legacy")
@@ -56,17 +57,18 @@ EXIT_CODE="$?"
 
 # Set output
 # https://github.com/orgs/community/discussions/26288#discussioncomment-3876281
-DELIMITER="DNSCONTROL-$RANDOM"
+# DELIMITER="DNSCONTROL-$RANDOM"
 
-{
-  echo "output<<$DELIMITER"
-  echo "$OUTPUT"
-  echo "$DELIMITER"
+# {
+#   echo "output<<$DELIMITER"
+#   echo "$OUTPUT"
+#   echo "$DELIMITER"
 
-  echo "preview_comment<<$DELIMITER"
-  echo "$OUTPUT"
-  echo "$DELIMITER"
-} >>"$GITHUB_OUTPUT"
+#   echo "preview_comment<<$DELIMITER"
+#   echo "$OUTPUT"
+#   echo "$DELIMITER"
+# } >>"$GITHUB_OUTPUT"
+echo $OUTPUT >>"$GITHUB_OUTPUT"
 
 exit $EXIT_CODE
 exit 1
