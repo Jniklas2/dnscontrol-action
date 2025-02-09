@@ -14,5 +14,5 @@ RUN apk -U --no-cache upgrade && \
 
 RUN ["dnscontrol", "version"]
 
-COPY entrypoint.sh /
+COPY entrypoint.sh bin/filter-preview-output.sh /
 ENTRYPOINT ["/entrypoint.sh"]

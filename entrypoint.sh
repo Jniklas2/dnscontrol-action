@@ -57,7 +57,7 @@ EXIT_CODE="$?"
 
 # Set output
 # https://github.com/orgs/community/discussions/26288#discussioncomment-3876281
-# DELIMITER="DNSCONTROL-$RANDOM"
+DELIMITER="DNSCONTROL-$RANDOM"
 
 {
   echo "output<<$DELIMITER"
